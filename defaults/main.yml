@@ -57,18 +57,18 @@ ubtu22cis_uses_root: false
 ## Refer to vars/auditd.yml for any other settings ##
 
 # Allow audit to setup the requirements including installing git (if option chosen and downloading and adding goss binary to system)
-setup_audit: false
+setup_audit: true
 
 # enable audits to run - this runs the audit and get the latest content
-run_audit: false
+run_audit: true
 
 # Only run Audit do not remediate
 audit_only: false
 # As part of audit_only
 # This will enable files to be copied back to control node
-fetch_audit_files: false
+fetch_audit_files: true
 # Path to copy the files to will create dir structure
-audit_capture_files_dir: /some/location to copy to on control node
+audit_capture_files_dir: ./auditreport/
 
 # How to retrieve audit binary
 # Options are copy or download - detailed settings at the bottom of this file
@@ -78,7 +78,7 @@ get_audit_binary_method: download
 ## if get_audit_binary_method - copy the following needs to be updated for your environment
 ## it is expected that it will be copied from somewhere accessible to the control node
 ## e.g copy from ansible control node to remote host
-audit_bin_copy_location: /some/accessible/path
+audit_bin_copy_location: /bincopy/
 
 # how to get audit files onto host options
 # options are git/copy/get_url other e.g. if you wish to run from already downloaded conf
@@ -130,7 +130,7 @@ ubtu22cis_rule_1_1_2_4: true
 ubtu22cis_rule_1_1_3_1: true
 ubtu22cis_rule_1_1_3_2: true
 ubtu22cis_rule_1_1_3_3: true
-ubtu22cis_rule_1_1_4_1: true
+ubtu22cis_rule_1_1_4_1: false
 ubtu22cis_rule_1_1_4_2: true
 ubtu22cis_rule_1_1_4_3: true
 ubtu22cis_rule_1_1_4_4: true
@@ -156,7 +156,7 @@ ubtu22cis_rule_1_3_1: true
 ubtu22cis_rule_1_3_2: true
 ubtu22cis_rule_1_4_1: true
 ubtu22cis_rule_1_4_2: true
-ubtu22cis_rule_1_4_3: true
+ubtu22cis_rule_1_4_3: false
 ubtu22cis_rule_1_5_1: true
 ubtu22cis_rule_1_5_2: true
 ubtu22cis_rule_1_5_3: true
@@ -327,7 +327,7 @@ ubtu22cis_rule_4_1_4_7: true
 ubtu22cis_rule_4_1_4_8: true
 ubtu22cis_rule_4_1_4_9: true
 ubtu22cis_rule_4_1_4_10: true
-ubtu22cis_rule_4_1_4_11: true
+ubtu22cis_rule_4_1_4_11: false
 # Configure Logging
 ## journald
 ubtu22cis_rule_4_2_1_1_1: true
@@ -391,7 +391,7 @@ ubtu22cis_rule_5_2_22: true
 ubtu22cis_rule_5_3_1: true
 ubtu22cis_rule_5_3_2: true
 ubtu22cis_rule_5_3_3: true
-ubtu22cis_rule_5_3_4: true
+ubtu22cis_rule_5_3_4: false
 ubtu22cis_rule_5_3_5: true
 ubtu22cis_rule_5_3_6: true
 ubtu22cis_rule_5_3_7: true
@@ -591,11 +591,11 @@ ubtu22cis_aide_cron:
 # THIS VALUE IS WHAT THE ROOT PW WILL BECOME!!!!!!!!
 # HAVING THAT PW EXPOSED IN RAW TEXT IS NOT SECURE!!!!
 ubtu22cis_grub_user: root
-ubtu22cis_set_grub_user_pass: false
-ubtu22cis_grub_user_passwd: '$y$j9T$MBA5l/tQyWifM869nQjsi.$cTy0ConcNjIYOn6Cppo5NAky20osrkRxz4fEWA8xac6'  # Set to changeme
+ubtu22cis_set_grub_user_pass: true
+ubtu22cis_grub_user_password: 'subhendusekhar'  # Set to changeme
 ubtu22cis_grub_user_file: /etc/grub.d/00_user
-ubtu22cis_bootloader_password_hash: "grub.pbkdf2.sha512.changethispassword"  # pragma: allowlist secret
-ubtu22cis_set_boot_pass: false
+ubtu22cis_bootloader_password_hash: "grub.pbkdf2.sha512.subhendu"  # pragma: allowlist secret
+ubtu22cis_set_boot_pass: true
 
 ubtu22cis_grub_file: /boot/grub/grub.cfg
 
